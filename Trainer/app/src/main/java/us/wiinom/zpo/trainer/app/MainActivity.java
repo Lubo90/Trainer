@@ -23,9 +23,6 @@ public class MainActivity extends ActionBarActivity {
 
         intent = new Intent(getApplicationContext(), TreningActivity.class);
 
-        //TextView tv = (TextView)findViewById(R.id.textView);
-        //tv.setText(getFilesDir().getAbsolutePath());
-
         inicjalizacjaListView();
     }
 
