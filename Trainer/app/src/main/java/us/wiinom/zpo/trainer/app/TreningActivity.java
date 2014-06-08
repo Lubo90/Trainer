@@ -64,6 +64,7 @@ public class TreningActivity extends Activity {
                                 Toast.makeText(getApplicationContext(), "Koniec treningu, gratulacje!", Toast.LENGTH_LONG).show();
                             }
                         });
+                        return;
                     }
 
                 runOnUiThread(new Runnable() {
