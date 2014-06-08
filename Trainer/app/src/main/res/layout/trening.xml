@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Trening"
-        android:id="@+id/textView"
+        android:id="@+id/tvTrening"
         android:layout_gravity="center_horizontal" />
 
     <TextView
@@ -17,46 +18,21 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Nazwa ćwiczenia"
-        android:id="@+id/textView2"
+        android:id="@+id/tvNazwaCwiczenia"
         android:layout_gravity="center_horizontal" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:layout_gravity="center_horizontal"
-        android:contentDescription="" />
-
     <TextView
+        android:layout_marginTop="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="30sec"
-        android:id="@+id/textView3" />
+        android:textSize="70dp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/tvCzas" />
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Następne"
-            android:id="@+id/button" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Poprzednie"
-            android:id="@+id/button2" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Menu"
-            android:onClick="btnMenuOnClickEventHandler"
-            android:id="@+id/btnMenu" />
-    </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/ivObrazek"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="15dp" />
 </LinearLayout>

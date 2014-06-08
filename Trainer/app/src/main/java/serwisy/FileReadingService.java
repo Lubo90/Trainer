@@ -1,11 +1,15 @@
 package serwisy;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.os.Environment;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -14,17 +18,22 @@ import java.util.ArrayList;
  */
 public class FileReadingService {
     Context mContext;
+    File mainFolder;
+
     public FileReadingService(Context c) {
         mContext = c;
+        mainFolder = new File(Environment.getExternalStorageDirectory(), "/trainer/");
     }
 
-    public String[] getFileList() {
-        File folder = new File(mContext.getFilesDir().toString());
+    public String[] getFileList() throws FileNotFoundException {
+        if(!mainFolder.exists()) {
+            throw new FileNotFoundException("Plik nie został znaleziony");
+        }
 
         ArrayList<String> fileNames = new ArrayList<String>();
-        File[] files = folder.listFiles();
+        File[] files = mainFolder.listFiles();
         for(File f : files) {
-            if(f.isFile())
+            if(f.isDirectory())
                 fileNames.add(f.getName());
         }
 
@@ -32,20 +41,22 @@ public class FileReadingService {
     }
 
     public String readFile(String fileName) throws IOException {
-        String pathToFile = mContext.getFilesDir() + "/" + fileName;
-        FileInputStream fis = mContext.openFileInput(pathToFile);
+        File sdCard = Environment.getExternalStorageDirectory();
+        File trainingFile = new File(sdCard, "/trainer/" + fileName + "/training.csv");
 
-        StringBuilder sb = new StringBuilder();
-        byte[] buffer = new byte[1024];
-        while(fis.read(buffer, 0, 1024) > 0) {
-            sb.append(new String(buffer));
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(trainingFile));
+
+        String line;
+        StringBuffer stringBuffer = new StringBuffer();
+        while ((line = bufferedReader.readLine()) != null) {
+            stringBuffer.append(line).append("\r\n");
         }
 
-        return sb.toString();
+        return stringBuffer.toString();
     }
 
     public Drawable loadImage(String imageLocation) throws FileNotFoundException {
-        File file = mContext.getFileStreamPath("/pics/" + imageLocation);
+        File file = new File(mainFolder, imageLocation);
         return Drawable.createFromPath(file.toString());
     }
 }

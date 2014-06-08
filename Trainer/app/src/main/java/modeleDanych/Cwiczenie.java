@@ -9,7 +9,7 @@ public class Cwiczenie {
     int mCzasTrwania;
     String mNazwa;
     Drawable mGrafika;
-    String mOpis;
+    //String mOpis;
     int mLiczbaPorzadkowa;
 
     public Cwiczenie setLiczbaPorzadkowa(int liczbaPorzadkowa) {
@@ -32,8 +32,28 @@ public class Cwiczenie {
         return this;
     }
 
-    public Cwiczenie setOpis(String opis) {
+    public int getLiczbaPorzadkowa() {
+        return mLiczbaPorzadkowa;
+    }
+
+    public String getNazwa() {
+        return mNazwa;
+    }
+
+    public Drawable getGrafika() {
+        return mGrafika;
+    }
+
+    public int getCzasTrwania() {
+        return mCzasTrwania;
+    }
+
+    public int getCzasTrwaniaAndZmniejsz() {
+        return mCzasTrwania--;
+    }
+
+    /*public Cwiczenie setOpis(String opis) {
         mOpis = opis;
         return this;
-    }
+    }*/
 }

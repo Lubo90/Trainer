@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class Zestaw {
     String mNazwaZestawu;
     ArrayList<Cwiczenie> mListaCwiczen;
+    int mAktualneCwiczenie = 0;
 
     public Zestaw setNazwa(String nazwaZestawu) {
         mNazwaZestawu = nazwaZestawu;
@@ -25,5 +26,13 @@ public class Zestaw {
 
         mListaCwiczen.add(cwiczenie);
         return this;
+    }
+
+    public Cwiczenie getAktualneCwiczenie() {
+        return mListaCwiczen.get(mAktualneCwiczenie);
+    }
+
+    public boolean nastepneCwiczenie() {
+        return ++mAktualneCwiczenie < mListaCwiczen.size();
     }
 }
